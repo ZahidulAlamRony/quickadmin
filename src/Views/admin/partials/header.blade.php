@@ -13,6 +13,8 @@
           name="viewport"/>
     <meta http-equiv="Content-type"
           content="text/html; charset=utf-8">
+    <meta name="csrf-token" 
+            content="{{ csrf_token() }}">
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"
           rel="stylesheet"
@@ -35,6 +37,11 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.standalone.min.css"/>
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
 </head>
 
 <body class="page-header-fixed">
