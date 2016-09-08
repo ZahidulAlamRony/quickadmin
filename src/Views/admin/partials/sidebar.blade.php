@@ -68,15 +68,12 @@
                 @endif
             @endforeach
             <li>
-                <a href="{{ url('logout') }}" onclick="event.preventDefault(); 
-                    document.getElementById('logout-form').submit();">
+                {!! Form::open(['url' => 'logout']) !!}
+                <button type="submit" class="logout">
                     <i class="fa fa-sign-out fa-fw"></i>
                     <span class="title">{{ trans('quickadmin::admin.partials-sidebar-logout') }}</span>
-                </a>
-
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
+                </button>
+                {!! Form::close() !!}
             </li>
         </ul>
     </div>
