@@ -14,6 +14,7 @@ if (Schema::hasTable('menus')) {
         Route::group([
             'middleware' => ['web', 'auth', 'role'],
             'prefix'     => config('quickadmin.route'),
+            'as'         => config('quickadmin.route') . '.',
             'namespace'  => 'App\Http\Controllers',
         ], function () use ($menus) {
             foreach ($menus as $menu) {
@@ -43,7 +44,7 @@ Route::group([
     'middleware' => ['web', 'auth']
 ], function () {
     // Dashboard home page route
-    Route::get(config('quickadmin.homeRoute'), 'QuickadminController@index');
+    Route::get(config('quickadmin.homeRoute'), config('quickadmin.homeAction','QuickadminController@index'));
     Route::group([
         'middleware' => 'role'
     ], function () {
